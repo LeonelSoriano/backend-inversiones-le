@@ -1,0 +1,38 @@
+[global.databases]
+postgres_database = { url = "postgres://postgres:example@localhost:5433/inversionesle" }
+
+#postgres_database = { url = "postgres://wuijdhjyrkgqbs:6eb26cc6047d5067aa0ff38a762e19c6549d1cd8dba984c3da9353bab88ac40a@ec2-54-162-119-125.compute-1.amazonaws.com:5432/ddrve27lefvkku" }
+    
+
+[development]
+address = "localhost"
+port = 8000
+workers = 1
+keep_alive = 5
+read_timeout = 5
+write_timeout = 5
+log = "normal"
+#secret_key = "dGVzdHI="
+limits = { forms = 32768 }
+
+[staging]
+address = "0.0.0.0"
+port = 8000
+workers = 1
+keep_alive = 5
+read_timeout = 5
+write_timeout = 5
+log = "normal"
+#secret_key = "test"
+limits = { forms = 32768 }
+
+[production]
+address = "0.0.0.0"
+port = 8000
+workers = 1
+keep_alive = 5
+read_timeout = 5
+write_timeout = 5
+log = "critical"
+#secret_key = "test"
+limits = { forms = 32768 }

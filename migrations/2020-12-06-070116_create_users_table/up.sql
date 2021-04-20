@@ -1,0 +1,19 @@
+-- Your SQL goes here
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY NOT NULL,
+    address VARCHAR(250) NOT NULL,
+    address_number VARCHAR(50) NOT NULL,
+    birthday TIMESTAMP NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    gender BOOLEAN NOT NULL,
+    img VARCHAR(125),
+    password VARCHAR(125) NOT NULL,
+    phone VARCHAR(11) NOT NULL,
+    username VARCHAR(30) NOT NULL UNIQUE,
+    name VARCHAR(60) NOT NULL,
+    surname VARCHAR(60) NOT NULL,
+    zip VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+);
