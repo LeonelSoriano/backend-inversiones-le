@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    container_name: address_book_db
+    container_name: inversiones
     image: postgres
     restart: always
     ports:
@@ -10,7 +10,7 @@ services:
     - POSTGRES_PASSWORD=postgres
   app:
     container_name: address_book_be
-    image: sakadream/rocket-rest-api-with-jwt
+    image: backend-inversiones-le/rocket-rest-api-with-jwt
     restart: always
     ports:
     - "8000:8000"
