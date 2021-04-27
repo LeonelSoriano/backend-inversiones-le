@@ -3,18 +3,19 @@
 use diesel::prelude::*;
 use diesel::PgConnection;
 use schema::{unit, business};
-use schema::people::dsl::*;
+use schema::unit::dsl::*;
+use schema::business::dsl::*;
 
-
+#[derive(Queryable, Debug, Serialize, Deserialize)]
 pub struct Business {
-    pub id: i32,
+    pub id: i64,
     pub name: String,
     pub sign: String,
 }
 
-#[derive(Queryable, Debug)]
+#[derive(Queryable, Debug, Serialize, Deserialize)]
 pub struct Unit {
-    pub id: i32,
+    pub id: i64,
     pub name: String,
     pub sign: String,
 }
@@ -22,12 +23,11 @@ pub struct Unit {
 pub struct Params {}
 
 impl Params {
-
-    pub fn findAllUnit (conn: &PgConnection) -> Vec<Unit> {
-        unit.order(id.asc()).load::<Unit>(conn).unwrap()
+    pub fn find_all_unit (conn: &PgConnection) -> Vec<Unit> {
+        unit.order(unit::id.asc()).load::<Unit>(conn).unwrap()
     }
 
-    pub fn findAllBusiness () -> Vec<Business> {
-        business.order(id.asc()).load::<Unit>(conn).unwrap()
+    pub fn find_all_business (conn: &PgConnection) -> Vec<Business> {
+        business.order(business::id.asc()).load::<Business>(conn).unwrap()
     }
 }

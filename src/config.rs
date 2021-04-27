@@ -2,6 +2,7 @@ use api::account_controller::*;
 use api::address_book_controller::*;
 use api::user_controller::*;
 use api::img_controller::*;
+use api::params_api_controller::*;
 use diesel::pg::PgConnection;
 use rocket::Rocket;
 use rocket::{Request, Response};
@@ -110,6 +111,7 @@ pub fn rocket() -> (Rocket, Option<DbConn>) {
         }))
         .mount("/api/img", routes![load_user_imagen, retrieve_user_img])
         .mount("/api/auth", routes![login, signup, res_hola])
+        .mount("/api/params", routes![find_all_units])
         .mount(
             "/api/address-book",
             routes![find_all, find_by_id, query, insert, update, delete],

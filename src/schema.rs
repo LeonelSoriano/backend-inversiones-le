@@ -1,6 +1,6 @@
 table! {
     business (id) {
-        id -> Int4,
+        id -> Int8,
         name -> Varchar,
         sign -> Varchar,
     }
@@ -40,9 +40,9 @@ table! {
         id -> Int4,
         name -> Varchar,
         description -> Varchar,
-        purchase_unit -> Int4,
-        retail_unit -> Int4,
-        sale_unit -> Int4,
+        purchase_unit -> Int8,
+        retail_unit -> Int8,
+        sale_unit -> Int8,
         created_at -> Timestamptz,
         updated_at -> Timestamptz,
     }
@@ -53,14 +53,14 @@ table! {
         id -> Int4,
         name -> Varchar,
         product_fk -> Int4,
-        business_fk -> Int4,
+        business_fk -> Int8,
         created_at -> Timestamptz,
     }
 }
 
 table! {
     unit (id) {
-        id -> Int4,
+        id -> Int8,
         name -> Varchar,
         sign -> Varchar,
     }

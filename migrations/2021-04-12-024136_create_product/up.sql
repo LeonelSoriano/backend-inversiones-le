@@ -28,9 +28,9 @@ CREATE TABLE products (
     retail_unit BIGINT NOT NULL  REFERENCES unit(id),
     sale_unit BIGINT NOT NULL  REFERENCES unit(id),
     created_at TIMESTAMP WITH TIME ZONE NOT NULL,
-    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+    create_by_fk BIGINT NOT NULL REFERENCES users(id)
 );
-
 
 CREATE TABLE products_bussiness_table (
     id SERIAL PRIMARY KEY NOT NULL,
@@ -47,12 +47,3 @@ CREATE TABLE img_products (
     product_fk  BIGINT NOT NULL  REFERENCES products(id),
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
-
-/*
-CREATE TABLE login_history
-(
-    id SERIAL PRIMARY KEY NOT NULL,
-    user_id BIGINT NOT NULL REFERENCES users(id),
-    login_timestamp TIMESTAMP WITH TIME ZONE NOT NULL
-);
-*/
